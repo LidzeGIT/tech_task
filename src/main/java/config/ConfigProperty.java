@@ -5,7 +5,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class ConfigPropety {
+public class ConfigProperty {
     private static FileInputStream fis;
     private static Properties PROPERTIES;
 

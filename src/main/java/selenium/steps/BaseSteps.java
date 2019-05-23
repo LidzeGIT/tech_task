@@ -7,7 +7,7 @@ import selenium.util.DriverManager;
 
 import java.util.concurrent.TimeUnit;
 
-import static config.ConfigPropety.getProperty;
+import static config.ConfigProperty.getProperty;
 
 
 public class BaseSteps {
