@@ -1,14 +1,9 @@
 package selenium.steps;
 
 import cucumber.api.java.en.When;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.Select;
 import selenium.pages.BasePageObject;
-import selenium.pages.DeliveryPage;
 import selenium.pages.MyOrdersPage;
 import selenium.pages.RegistrationPage;
-import selenium.util.DriverManager;
 
 
 
@@ -18,7 +13,6 @@ public class ScenarioSteps {
 
     private RegistrationPage registrationPage = new RegistrationPage();
     private static String currentPageName;
-    private DeliveryPage deliveryPage = new DeliveryPage();
 
     @When("загружена страница \"(.*)\"")
     public void stepPageLoaded(String pageName){
