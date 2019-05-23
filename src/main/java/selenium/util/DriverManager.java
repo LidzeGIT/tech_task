@@ -1,16 +1,16 @@
 package selenium.util;
 
-import config.TestProperties;
+
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import java.util.Properties;
+import static config.ConfigPropety.getProperty;
 
 
 public class DriverManager {
-	private static Properties properties = TestProperties.getInstance().getProperties();
 	private static WebDriver driver = null;
 
 	public static WebDriver getDriver(){
@@ -29,16 +29,16 @@ public class DriverManager {
 
 	private static WebDriver createDriver() {
 
-		switch (properties.getProperty("browser")) {
+		switch (getProperty("browser")) {
 			case "chrome":
-				System.setProperty("webdriver.chrome.driver", properties.getProperty("webdriver.chrome.driver"));
+				System.setProperty("webdriver.chrome.driver", getProperty("webdriver.chrome.driver"));
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("useAutomationExtension", false);
                 options.addArguments("--disable-notifications");
 				driver = new ChromeDriver(options);
 				break;
 			case "firefox":
-				System.setProperty("webdriver.gecko.driver", properties.getProperty("webdriver.gecko.driver"));
+				System.setProperty("webdriver.gecko.driver", getProperty("webdriver.gecko.driver"));
 				driver = new FirefoxDriver();
 				break;
 			default:
