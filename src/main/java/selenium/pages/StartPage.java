@@ -7,8 +7,8 @@ import selenium.annotation.FieldName;
 public class StartPage extends BasePageObject {
 
 
-    @FindBy(xpath = "//div[@class='headerPersonal gg']/a[@class='headerLogin headerRegister']")
-    //@FindBy(css = ".headerPersonal>.headerRegister")
+    //@FindBy(xpath = "//div[@class='headerPersonal gg']/a[@class='headerLogin headerRegister']")
+    @FindBy(css = ".headerPersonal>.headerRegister")
     @FieldName(name = "Регистрация")
     public WebElement registration;
 
