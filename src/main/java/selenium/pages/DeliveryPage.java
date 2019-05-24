@@ -16,19 +16,20 @@ public class DeliveryPage extends BasePageObject {
 
     @FieldName(name = "Доставка по Москве")
     @FindBy(xpath = "//*[@id=\"delivery-box\"]/div[2]/div/div/div/label")
+    //@FindBy(xpath = "//*[@id='delivery-box']//label[contains(text(), 'Доставка по Москве')]")
     public WebElement delivery;
 
     @FindBy(xpath = "//input[@id=\"metro_dropdown\"]")
     @FieldName(name = "Метро")
     public WebElement metro;
 
-
     @FieldName(name = "Улица")
     @FindBy(xpath = "//input[@id=\"ORDER_PROP_5_VALUE\"]")
     public WebElement street;
 
     @FieldName(name = "Летная")
-    @FindBy(xpath = "/html/body/ul[1]/li[1]/a")
+    //@FindBy(xpath = "/html/body/ul[1]/li[1]/a")
+    @FindBy(xpath = "(//ul[@role='listbox'][1]//a)[1]")
     public WebElement let;
 
     @FieldName(name = "Дом")
