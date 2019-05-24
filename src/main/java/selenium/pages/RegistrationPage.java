@@ -31,8 +31,8 @@ public class RegistrationPage extends BasePageObject {
     public WebElement phone;
 
     @FieldName(name = "Пароль")
-    @FindBy(xpath = "//div[@class='regInputWrap regPasswordWrap']/input[@type='password']")
-    //@FindBy(css = ".regPasswordWrap>input[type='password']")
+    //@FindBy(xpath = "//div[@class='regInputWrap regPasswordWrap']/input[@type='password']")
+    @FindBy(css = ".regPasswordWrap>input[type='password']")
     public WebElement pass;
 
     @FieldName(name = "Зарегистрироваться")
@@ -40,8 +40,8 @@ public class RegistrationPage extends BasePageObject {
     public WebElement registr;
 
     //сделать метод закрывающий окно
-    @FindBy(xpath = "//div[@class='popup popupRegFinalCustom closerPaddingT closerPaddingR noLeftMargin']/a[@class='close']")
-    //@FindBy(css = ".popupRegFinalCustom>.close ")
+    //@FindBy(xpath = "//div[@class='popup popupRegFinalCustom closerPaddingT closerPaddingR noLeftMargin']/a[@class='close']")
+    @FindBy(css = ".popupRegFinalCustom>.close ")
     public WebElement close;
 
     @Override

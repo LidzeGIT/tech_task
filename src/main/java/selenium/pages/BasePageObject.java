@@ -48,7 +48,6 @@ public abstract class BasePageObject {
 		for (Field field : fields){
 			if (field.getAnnotation(FieldName.class).name().equals(name)){
 			    return (WebElement) field.get(this);
-				//return DriverManager.getDriver().findElement(By.xpath(field.getAnnotation(FindBy.class).xpath()));
 			}
 		}
 		Assert.fail("Не объявлен элемент с наименованием " + name);
