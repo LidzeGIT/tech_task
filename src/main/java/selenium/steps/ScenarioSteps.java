@@ -6,16 +6,14 @@ import selenium.pages.MyOrdersPage;
 import selenium.pages.RegistrationPage;
 
 
-
-
 public class ScenarioSteps {
 
 
-    private RegistrationPage registrationPage = new RegistrationPage();
     private static String currentPageName;
+    private RegistrationPage registrationPage;
 
     @When("загружена страница \"(.*)\"")
-    public void stepPageLoaded(String pageName){
+    public void stepPageLoaded(String pageName) {
         currentPageName = pageName;
     }
 
@@ -36,16 +34,16 @@ public class ScenarioSteps {
     }
 
     @When("выполнить поиск \"(.*)\"")
-    public void fillFieldEnter(String value){
+    public void fillFieldEnter(String value) {
         MyOrdersPage page = new MyOrdersPage();
         page.fillFieldEnter(page.search, value);
     }
 
     @When("^закрыто всплывающее окно$")
     public void closeBunner() {
+        registrationPage = new RegistrationPage();
         registrationPage.click(registrationPage.close);
     }
-
 
     @When("нажать на \"(.*)\"")
     public void click(String name) throws Exception {

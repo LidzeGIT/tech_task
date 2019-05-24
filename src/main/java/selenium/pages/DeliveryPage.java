@@ -6,7 +6,6 @@ import selenium.annotation.FieldName;
 
 public class DeliveryPage extends BasePageObject {
 
-
     @FindBy(xpath = "//input[@id=\"phone_code_1\"]")
     @FieldName(name = "Код")
     public WebElement code;

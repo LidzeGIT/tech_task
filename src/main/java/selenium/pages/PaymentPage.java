@@ -4,8 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import selenium.annotation.FieldName;
 
-public class PaymentPage extends BasePageObject{
-
+public class PaymentPage extends BasePageObject {
 
 
     @FindBy(xpath = "//*[@id=\"delivery_radio_1-styler\"]/span")

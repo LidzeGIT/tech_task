@@ -16,65 +16,65 @@ import java.util.List;
 
 
 public abstract class BasePageObject {
-	private WebDriverWait wait  = new WebDriverWait(DriverManager.getDriver(), 60);
+    private WebDriverWait wait = new WebDriverWait(DriverManager.getDriver(), 60);
 
-	BasePageObject() {
-		PageFactory.initElements(DriverManager.getDriver(), this);
-	}
+    BasePageObject() {
+        PageFactory.initElements(DriverManager.getDriver(), this);
+    }
 
 
-	public void fillField(String name, String value) throws Exception {
-		WebElement element = getField(name);
-		fillField(element, value);
-	}
+    public void fillField(String name, String value) throws Exception {
+        WebElement element = getField(name);
+        fillField(element, value);
+    }
 
-	public void click(String name) throws Exception {
-		WebElement element = getField(name);
-		click(element);
-	}
+    public void click(String name) throws Exception {
+        WebElement element = getField(name);
+        click(element);
+    }
 
-	public void waitTitle(String title){
-        WebDriverWait driverWait = new WebDriverWait(DriverManager.getDriver(),15);
+    public void waitTitle(String title) {
+        WebDriverWait driverWait = new WebDriverWait(DriverManager.getDriver(), 15);
         driverWait.until(ExpectedConditions.titleContains(title));
     }
 
-	public abstract WebElement getField(String name) throws Exception;
+    public abstract WebElement getField(String name) throws Exception;
 
-	WebElement getField(String name, String className) throws Exception {
-		Class example = Class.forName(className);
-		List<Field> fields = Arrays.asList(example.getFields());
-		for (Field field : fields){
-			if (field.getAnnotation(FieldName.class).name().equals(name)){
-			    return (WebElement) field.get(this);
-			}
-		}
-		Assert.fail("Не объявлен элемент с наименованием " + name);
-		return null;
-	}
+    WebElement getField(String name, String className) throws Exception {
+        Class example = Class.forName(className);
+        List<Field> fields = Arrays.asList(example.getFields());
+        for (Field field : fields) {
+            if (field.getAnnotation(FieldName.class).name().equals(name)) {
+                return (WebElement) field.get(this);
+            }
+        }
+        Assert.fail("Не объявлен элемент с наименованием " + name);
+        return null;
+    }
 
-	private void fillField(WebElement field, String value){
-		field.clear();
-		field.sendKeys(value);
-		field.sendKeys(Keys.TAB);
-	}
+    private void fillField(WebElement field, String value) {
+        field.clear();
+        field.sendKeys(value);
+        field.sendKeys(Keys.TAB);
+    }
 
-    public void fillFieldEnter(WebElement field, String value){
+    public void fillFieldEnter(WebElement field, String value) {
         field.clear();
         field.sendKeys(value);
         field.sendKeys(Keys.ENTER);
     }
 
-    public void fillFieldDown(WebElement field, String value){
+    public void fillFieldDown(WebElement field, String value) {
         field.clear();
         field.sendKeys(value);
         field.sendKeys(Keys.DOWN);
     }
 
 
-	public void click(WebElement element){
-		wait.until(ExpectedConditions.visibilityOf(element)).click();
+    public void click(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element)).click();
         //wait.until(ExpectedConditions.elementToBeClickable(element)).click();
-	}
+    }
 
 
 }
